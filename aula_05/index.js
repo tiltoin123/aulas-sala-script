@@ -26,3 +26,24 @@ app.post("/Aluno", async (req, res) => {
         await sql.close();
     }
 })
+
+app.get("/todosAlunos", async(req,res)=>{
+    try{
+        await connect()
+
+        const result = await sql.query("SELECT * from alunos")
+
+        const final = result.recordset.map(({id,nome,idade})=>({
+            id,
+            nome,
+            idade,
+        }))
+
+        console.log(result);
+    }catch(err){
+        console.error(err);
+        res.status(500).send("erro no servidor!");
+    }finally{
+        await sql.close()
+    }
+})

@@ -2,9 +2,9 @@ const sql = require("mssql");
 
 const config = {
     user: 'sa',
-    password: 'Leo123!*',
+    password: 'fatec123*',
     server: 'localhost',
-    port: 1433,
+    port: 1096,
     database: 'ProgSCRIPT',
     options: { encrypt: false }
 }
